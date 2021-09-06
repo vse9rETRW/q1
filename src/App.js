@@ -1,27 +1,35 @@
-import logo from './logo.svg';
-import './App.css';
-import {useEffect} from 'react';
+import Login from './views/Login';
+import './App.sass';
+import React from 'react';
+import { getXsrf } from './localStorage';
 
-function App() {
-  useEffect(() =>
-      fetch('/api/authentication'), [])
+import { renderRoutes } from "react-router-config";
+import {Redirect} from 'react-router';
+
+const App = props => {
+  const { route, history } = props
+  console.log(getXsrf());
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+      getXsrf() ?
+      <div className="app">
+        <div className="index-header">
+          <div className="index-header__logo">
+            LOGO
+          </div>
+          <div className="index-header__shortcut">
+            <div className="pointer" onClick={()=>history.push('./home')}>
+              首頁
+            </div>
+            <div className="pointer" onClick={()=>history.push('./news')}>
+              最新消息
+            </div>
+          </div>
+        </div>
+        <div className="m-top__24 m-left__32">
+          {renderRoutes(route.routes)}
+        </div>
+      </div> :
+      <Redirect to="/login" />
   );
 }
 
