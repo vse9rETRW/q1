@@ -7,7 +7,6 @@ import Login from '../views/Login';
 import Register from '../views/Register';
 import HomePage from '../views/HomePage';
 import News from '../views/News';
-import NotFound from '../NotFound';
 
 const routes = [
   {
