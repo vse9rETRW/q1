@@ -40,7 +40,7 @@ const Login = props => {
         <div className="login__content flex flex--column a-center">
           <div className="login__title">登入</div>
           <InputItem className="m-top__56" onChange={setUsername} label="帳號"/>
-          <InputItem className="m-top__40" onChange={setPassword} label="密碼"/>
+          <InputItem className="m-top__40" onChange={setPassword} type="password" label="密碼"/>
           <div className="login__register m-top__40" onClick={()=>history.push("/register")}>
             註冊
           </div>

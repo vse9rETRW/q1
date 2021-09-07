@@ -39,9 +39,9 @@ const Register = () => {
       <div className="register center">
         <div className="register__content flex flex--column a-center">
           <div className="register__title">註冊</div>
-          <InputItem className="m-top__40" onChange={setUsername} label="帳號"/>
-          <InputItem className="m-top__40" onChange={setPassword} label="密碼"/>
-          <InputItem className="m-top__40" onChange={setConfirm} label="確認密碼"/>
+          <InputItem className="m-top__40" star={true} onChange={setUsername} label="帳號"/>
+          <InputItem className="m-top__40" star={true} onChange={setPassword} label="密碼"/>
+          <InputItem className="m-top__40" star={true} onChange={setConfirm} label="確認密碼"/>
           <div className="login__register m-top__40" onClick={()=>history.push("/login")}>
             返回登入
           </div>
